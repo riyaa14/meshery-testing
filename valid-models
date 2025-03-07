@@ -1,5 +1,0 @@
-<script>start("/Users/DELL/open-source/test-meshmodels/valid-models/");</script>
-<script>onHasParentDirectory();</script>
-<script>addRow("kccn24-test-csv","kccn24-test-csv",1,160,"160 B",1741326115,"07/03/2025, 11:11:55");</script>
-<script>addRow("kccna24-test","kccna24-test",1,96,"96 B",1741326138,"07/03/2025, 11:12:18");</script>
-<script>addRow("apache-shardingsphere-test-oci.tar","apache-shardingsphere-test-oci.tar",0,30720,"30.0 kB",1741326062,"07/03/2025, 11:11:02");</script>
