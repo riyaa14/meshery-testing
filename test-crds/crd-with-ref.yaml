@@ -1,0 +1,42 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: bookstores.example.com
+spec:
+  group: example.com
+  names:
+    kind: BookStore
+    plural: bookstores
+    singular: bookstore
+  scope: Namespaced
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              $ref: "#/components/schemas/BookStoreSpec"
+components:
+  schemas:
+    BookStoreSpec:
+      type: object
+      properties:
+        name:
+          type: string
+        books:
+          type: array
+          items:
+            $ref: "#/components/schemas/Book"
+
+    Book:
+      type: object
+      properties:
+        title:
+          type: string
+        author:
+          type: string
+        price:
+          type: number
