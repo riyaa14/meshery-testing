@@ -17,19 +17,13 @@ spec:
       schema:
         openAPIV3Schema:
           $ref: "#/components/schemas/MyAppSpec"
-
----
-
-# CRD 1 Components
-components:
-  schemas:
-    MyAppSpec:
-      type: object
-      properties:
-        appName:
-          type: string
-        database:
-          $ref: "#/components/schemas/MyDatabaseSpec"
+          components:
+            schemas:
+              MyAppSpec:
+                type: object
+                properties:
+                  appName:
+                    type: string
 
 ---
 
@@ -52,16 +46,12 @@ spec:
       schema:
         openAPIV3Schema:
           $ref: "#/components/schemas/MyDatabaseSpec"
-
----
-
-# CRD 2 Components
-components:
-  schemas:
-    MyDatabaseSpec:
-      type: object
-      properties:
-        host:
-          type: string
-        port:
-          type: integer
+          components:
+            schemas:
+              MyDatabaseSpec:
+                type: object
+                properties:
+                  host:
+                    type: string
+                  port:
+                    type: integer
