@@ -16,7 +16,10 @@ spec:
       storage: true
       schema:
         openAPIV3Schema:
-          $ref: "#/components/schemas/MyAppSpec"
+          type: object
+          properties:
+            spec:
+              $ref: '#/components/schemas/MyAppSpec'
           components:
             schemas:
               MyAppSpec:
@@ -45,7 +48,10 @@ spec:
       storage: true
       schema:
         openAPIV3Schema:
-          $ref: "#/components/schemas/MyDatabaseSpec"
+          type: object
+          properties:
+            spec:
+              $ref: '#/components/schemas/MyDatabaseSpec'
           components:
             schemas:
               MyDatabaseSpec:
