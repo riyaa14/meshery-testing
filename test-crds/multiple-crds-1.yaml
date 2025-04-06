@@ -1,0 +1,78 @@
+openapi: 3.0.0
+info:
+  title: Example CRD Bundle
+  version: 1.0.0
+
+paths: {}
+
+x-kubernetes-group-version-kind:
+  - group: "apps.example.com"
+    kind: "MyApp"
+    version: "v1"
+  - group: "db.example.com"
+    kind: "MyDatabase"
+    version: "v1"
+
+definitions:
+  MyApp:
+    type: object
+    properties:
+      apiVersion:
+        type: string
+        enum: ["apps.example.com/v1"]
+      kind:
+        type: string
+        enum: ["MyApp"]
+      metadata:
+        $ref: "#/components/schemas/Metadata"
+      spec:
+        $ref: "#/components/schemas/MyAppSpec"
+  MyDatabase:
+    type: object
+    properties:
+      apiVersion:
+        type: string
+        enum: ["db.example.com/v1"]
+      kind:
+        type: string
+        enum: ["MyDatabase"]
+      metadata:
+        $ref: "#/components/schemas/Metadata"
+      spec:
+        $ref: "#/components/schemas/MyDatabaseSpec"
+
+components:
+  schemas:
+    Metadata:
+      type: object
+      properties:
+        name:
+          type: string
+        namespace:
+          type: string
+    MyAppSpec:
+      type: object
+      properties:
+        image:
+          type: string
+        replicas:
+          type: integer
+        databaseRef:
+          $ref: "#/components/schemas/DatabaseRef"
+    MyDatabaseSpec:
+      type: object
+      properties:
+        engine:
+          type: string
+          enum: ["postgres", "mysql"]
+        version:
+          type: string
+        storage:
+          type: string
+    DatabaseRef:
+      type: object
+      properties:
+        name:
+          type: string
+        namespace:
+          type: string
